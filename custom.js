@@ -9,7 +9,7 @@ document.querySelector("#jsOnload").addEventListener('click', function () {
   }
   xhr.open('GET', 'https://jsonplaceholder.typicode.com/comments?postId=1', true);
   xhr.send();
-  document.querySelector("#jsOnload").disabled = true;
+  disableButton('jsOnload');
 });
 
 // get data using Vanilla JS onreadystatechange 
@@ -23,7 +23,7 @@ document.querySelector("#jsOnReadyStateChange").addEventListener('click', functi
   }
   xhr.open('GET', 'https://jsonplaceholder.typicode.com/comments?postId=2', true);
   xhr.send();
-  document.querySelector("#jsOnReadyStateChange").disabled = true;
+  disableButton('jsOnReadyStateChange');
 });
 
 // get data using fetch
@@ -33,7 +33,7 @@ document.querySelector('#jsFetch').addEventListener('click', function() {
       response.json()
         .then(function(dataObj) {
           loadDataInTablualrForm(dataObj);
-          document.querySelector("#jsFetch").disabled = true;
+          disableButton('jsFetch');
         });  
     });
 });
@@ -122,4 +122,8 @@ function loadDataInTablualrForm(dataObj) {
   }      
   html += '</tbody></table>';
   document.querySelector('#table').innerHTML = html;
+}
+
+function disableButton(id) {
+  document.getElementById(id).disabled = true
 }
