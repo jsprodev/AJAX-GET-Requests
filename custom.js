@@ -30,7 +30,7 @@ document.querySelector('#jsOnReadyStateChange').addEventListener('click', functi
   disableButton('jsOnReadyStateChange');
 });
 
-// get data using fetch
+// get data using fetch API
 document.querySelector('#jsFetch').addEventListener('click', function() {
   addLoader();
   fetch('https://jsonplaceholder.typicode.com/comments?postId=3')
@@ -46,7 +46,7 @@ document.querySelector('#jsFetch').addEventListener('click', function() {
     });
 });
 
-// get data using jQuery AJAX latest method done, fail, always
+// get data using jQuery AJAX latest method .done, .fail, .always
 $('#jQueryAjax').one('click', function() {
   addLoader();
   $.ajax('https://jsonplaceholder.typicode.com/comments?postId=4')
@@ -76,7 +76,7 @@ $('#jQueryAjax').one('click', function() {
     });
 });
 
-// get data using jQuery load
+// get data using jQuery $load
 $('#jQueryLoad').one('click', function() {
   addLoader();
   $('#table').load('https://jsonplaceholder.typicode.com/comments?postId=5', function(responseText, statusText, xhrObj) {
@@ -99,7 +99,7 @@ $('#jQueryLoad').one('click', function() {
   });
 });
 
-// // get data using jQuery GET
+// // get data using jQuery $get
 $('#jQueryGet').one('click', function() {
   addLoader();
   $.get('https://jsonplaceholder.typicode.com/comments?postId=6', function(data, statusText) {
