@@ -35,12 +35,14 @@ document.querySelector('#jsFetch').addEventListener('click', function() {
   addLoader();
   fetch('https://jsonplaceholder.typicode.com/comments?postId=3')
     .then(function(response) {
-      response.json()
+      if (response.ok) {
+        response.json()
         .then(function(dataObj) {
           removeLoader();
           loadDataInTablualrForm(dataObj);
           disableButton('jsFetch');
-        });  
+        }); 
+      }
     });
 });
 
