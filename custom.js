@@ -38,11 +38,14 @@ document.querySelector('#jsFetch').addEventListener('click', function() {
       if (response.ok) {
         response.json()
         .then(function(dataObj) {
-          removeLoader();
           loadDataInTablualrForm(dataObj);
           disableButton('jsFetch');
+          removeLoader();
         }); 
-      }
+      } else {
+          console.log('Network request for https://jsonplaceholder.typicode.com/comments?postId=3 failed with response ' + response.status + ': ' + response.statusText);
+          removeLoader();
+        }
     });
 });
 
