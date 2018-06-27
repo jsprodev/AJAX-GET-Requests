@@ -171,6 +171,7 @@ function removeLoader() {
 // show search input
 function showSearchInput() {
   document.querySelector('#searchDiv').classList.remove('d-none');
+  document.querySelector('#searchInput').value = '';
 }
 
 // search in table
@@ -180,7 +181,7 @@ function searchTable() {
   filter = input.value.toUpperCase();
   table = document.getElementById("dataTable");
   tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
+  for (i = 1; i < tr.length; i++) {
       td = tr[i].getElementsByTagName("td");
       for (j = 0; j < td.length; j++) {
           if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
